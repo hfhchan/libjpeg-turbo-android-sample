@@ -1,6 +1,8 @@
 # libjpeg-turbo-android
 Sample project for integrating libjpeg-turbo as a library on Android
 
+Only method signatures using classes supported on Android are compiled into the library.
+
 # Licenses
 This sample is licensed under the MIT License.
 
