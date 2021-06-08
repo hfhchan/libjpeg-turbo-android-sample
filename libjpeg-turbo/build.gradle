@@ -12,6 +12,23 @@ android {
         versionName "1.0"
 
         consumerProguardFiles "consumer-rules.pro"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++11"
+                arguments "-DWITH_JAVA=1",
+                        "-DANDROID_ARM_NEON=TRUE",
+                        "-DANDROID_TOOLCHAIN=clang",
+                        "-DJAVA_AWT_LIBRARY:STRING=NotNeeded",
+                        "-DJAVA_JVM_LIBRARY:STRING=NotNeeded",
+                        "-DJAVA_INCLUDE_PATH2:STRING=NotNeeded",
+                        "-DJAVA_AWT_INCLUDE_PATH:STRING=NotNeeded",
+                        "-DREQUIRE_SIMD=1"
+            }
+            ndk {
+                abiFilters 'armeabi-v7a','arm64-v8a'
+            }
+        }
     }
 
     buildTypes {
@@ -23,5 +40,12 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+    externalNativeBuild {
+        cmake {
+            path file("src/main/cpp/libjpeg-turbo-2.1.0/CMakeLists.txt")
+            version '3.10.2'
+        }
     }
 }
