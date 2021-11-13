@@ -42,7 +42,7 @@ android {
 
     externalNativeBuild {
         cmake {
-            path file("src/main/cpp/libjpeg-turbo-2.1.0/CMakeLists.txt")
+            path file("src/main/cpp/libjpeg-turbo-2.1.1/CMakeLists.txt")
             version '3.10.2'
         }
     }
