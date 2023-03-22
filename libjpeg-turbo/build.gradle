@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 23
-        targetSdkVersion 30
+        targetSdkVersion 33
 
         consumerProguardFiles "consumer-rules.pro"
 
@@ -36,14 +36,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
-        targetCompatibility JavaVersion.VERSION_1_6
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     externalNativeBuild {
         cmake {
             path file("src/main/cpp/libjpeg-turbo-2.1.1/CMakeLists.txt")
-            version '3.10.2'
+            version '3.18.1'
         }
     }
 }

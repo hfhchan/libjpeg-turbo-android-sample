@@ -27,10 +27,10 @@ class MainActivity : AppCompatActivity() {
             val bytes = ByteArray(size)
             val b: ByteBuffer = ByteBuffer.wrap(bytes)
             bmp.copyPixelsToBuffer(b)
-            bmp.recycle()
 
             val tjc = TJCompressor()
             tjc.setSourceImage(bytes, 0, 0, bmp.width, 0, bmp.height, TJ.PF_RGBX)
+            bmp.recycle()
             tjc.setSubsamp(TJ.SAMP_444)
             tjc.setJPEGQuality(100)
             val outputBytes: ByteArray = tjc.compress(0)
